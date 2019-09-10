@@ -4,9 +4,7 @@ cloneRepos() {
     echo $1
     repoFile=$1
     DIR=$(dirname "${repoFile}")
-    if [ ! -d $DIR ]; then
-        mkdir -p $DIR/grading
-    fi
+    mkdir -p $DIR/grading
     total=0
     fail=0
     while read repo; do
@@ -14,6 +12,7 @@ cloneRepos() {
         #echo "cloning $repoPath "
         cd $DIR/grading > /dev/null 2>&1
         #git clone $repoPath 
+        echo $(pwd)
         git clone $repoPath > git.log 2>&1
         ((total+=1))
         OUTPUT=$(egrep -i "ERROR:" git.log)
@@ -49,7 +48,7 @@ if [[ $# < 2 ]]; then
 fi
 
 if [[ $1 == "clone" ]]; then
-    echo "cloning repos from file $2"
+    echo "cloning repos from DIR/file $2"
     cloneRepos $2
 elif [[ $1 == "pull" ]]; then
     echo "pulling repos in root directory $2"
