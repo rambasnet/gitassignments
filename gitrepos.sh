@@ -12,7 +12,6 @@ cloneRepos() {
         #echo "cloning $repoPath "
         cd $DIR/grading > /dev/null 2>&1
         #git clone $repoPath 
-        echo $(pwd)
         git clone $repoPath > git.log 2>&1
         ((total+=1))
         OUTPUT=$(egrep -i "ERROR:" git.log)
