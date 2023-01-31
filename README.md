@@ -16,8 +16,8 @@ script to work with assignments as git repositories
 ```bash
 $ bash gitrepos.sh clone OOP/repos.txt 
 ```
-    - the script will create a folder called grading inside the course folder
-    - e.g., OOP/grading
+- the script will create a folder called grading inside the course folder
+- e.g., OOP/grading
 
 4. to pull new submissions run:
 
